@@ -13,3 +13,5 @@ css
 .DS_Store
 
 .Notes.txt
+# Local Netlify folder
+.netlify
