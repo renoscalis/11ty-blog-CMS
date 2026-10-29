@@ -8,6 +8,7 @@ module.exports = function(eleventyConfig) {
 	// ΣΩΣΤΟ: Αντιγραφή των αρχείων χωρίς αρχικό slash "/"
 	eleventyConfig.addPassthroughCopy("./src/style.css");
 	eleventyConfig.addPassthroughCopy("./src/assets");
+	eleventyConfig.addPassthroughCopy("./src/admin");
 
 	eleventyConfig.addFilter("postDate", (dateObj) => {
 		return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
