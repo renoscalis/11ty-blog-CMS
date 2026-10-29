@@ -14,6 +14,12 @@ module.exports = function(eleventyConfig) {
 	});
     
 	eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+
+	// Έλεγχος: Αν χτίζουμε στο Netlify (το Netlify βάζει αυτόματα τη μεταβλητή NETLIFY=true)
+	// ή αν τρέχουμε τοπικά, το prefix θα είναι κενό. Αλλιώς, θα είναι του GitHub Pages.
+	const isNetlifyOrLocal = process.env.NETLIFY === "true" || !process.env.GITHUB_ACTIONS;
+	const myPathPrefix = isNetlifyOrLocal ? "/" : "/11ty-blog-CMS/";
 	
 	return {
 		dir: {
