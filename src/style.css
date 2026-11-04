@@ -87,8 +87,9 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
+  /*max-width: 70%;*/
   display: block;
+  margin: auto;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -278,6 +279,7 @@ section,
     margin: 1rem 0;
     font-size: var(--fs-300);
     opacity: .9;
+    text-align: center;
   }
 
 /* //////////////////////
@@ -384,4 +386,9 @@ section,
 .btn--neutral:focus {
   color: var(--clr-neutral-100);
   background-color: var(--clr-neutral-900);
+}
+
+
+.mr-1 {
+  margin-bottom: 3rem;
 }
