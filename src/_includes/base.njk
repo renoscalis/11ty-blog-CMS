@@ -9,7 +9,30 @@
 <!-- link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
 link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous')
 link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=greek-ext') -->
+  {# Dynamic Variables with Fallbacks #}
+  {% set metaTitle = title or site.title %}
+  {% set metaDesc = description or site.description %}
+  {% set metaImage = site.url + (image or site.defaultImage) %}
+  {% set canonicalUrl = site.url + page.url %}
 
+  {# Standard SEO Meta Tags #}
+  <title>{{ metaTitle }} | {{ site.title }}</title>
+  <meta name="description" content="{{ metaDesc }}">
+  <link rel="canonical" href="{{ canonicalUrl }}">
+
+  {# Open Graph / Facebook #}
+  <meta property="og:type" content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:title" content="{{ metaTitle }}">
+  <meta property="og:description" content="{{ metaDesc }}">
+  <meta property="og:image" content="{{ metaImage }}">
+
+  {# Twitter Cards #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:description" content="{{ metaDesc }}">
+  <meta name="twitter:image" content="{{ metaImage }}">
+  
 
   <link rel="stylesheet" href="/style.css">
   <title>{{ title }}</title>
