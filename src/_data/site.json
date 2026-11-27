@@ -1,0 +1,8 @@
+{
+  "name": "My SEO Blog",
+  "url": "https://11ty-blog-cms.netlify.app",
+  "description": "Practical guides about SEO and web development.",
+  "language": "en",
+  "author": "John Doe",
+  "defaultImage": "/assets/blog/article-1.jpg"
+}

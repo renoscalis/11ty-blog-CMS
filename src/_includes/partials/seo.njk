@@ -1,0 +1,37 @@
+{# SEO title #}
+{% set seoTitle = seoTitle or (title + " | " + site.name) %}
+
+{# SEO description #}
+{% set seoDescription = metaDescription or description or site.description %}
+
+{# Canonical URL #}
+{% set canonicalUrl = canonical or (site.url + page.url) %}
+
+{# Social sharing image #}
+{% set socialImage = ogImage or (site.url + site.defaultImage) %}
+
+<!-- Primary SEO -->
+<title>{{ seoTitle }}</title>
+
+<meta name="description" content="{{ seoDescription }}" />
+
+<link rel="canonical" href="{{ canonicalUrl }}" />
+
+<!-- Robots -->
+{% if noindex %}
+<meta name="robots" content="noindex, follow" />
+{% endif %}
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ ogType or 'website' }}" />
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta property="og:title" content="{{ seoTitle }}" />
+<meta property="og:description" content="{{ seoDescription }}" />
+<meta property="og:url" content="{{ canonicalUrl }}" />
+<meta property="og:image" content="{{ socialImage }}" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ seoTitle }}" />
+<meta name="twitter:description" content="{{ seoDescription }}" />
+<meta name="twitter:image" content="{{ socialImage }}" />
